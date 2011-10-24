@@ -23,8 +23,6 @@ class Event {
 		$this->_period = $this->parsePeriod($period);
 		$this->job = $job;
 		$this->last = null;
-		
-		var_dump($this);
 	}
 	
 	public function __toString() {
@@ -33,7 +31,7 @@ class Event {
 	
 	public function isTime($t) {
 		$ellapsed_ready = (is_null($this->last) || ($t - $this->last) >= $this->_period);
-		$time_ready = (is_null($this->at) || ((date('H', $t) == $this->_at[0]) && date('i', $t) == $this->_at[1]));
+		$time_ready = (is_null($this->_at) || ((date('H', $t) == $this->_at[0]) && date('i', $t) == $this->_at[1]));
 		return ($ellapsed_ready && $time_ready);
 	}
 	
