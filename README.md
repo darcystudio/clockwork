@@ -23,6 +23,7 @@ Create clockwork.php
 	Clockwork::every('3 minutes', 'less.frequent.job');
 	Clockwork::every('1 hour', 'hourly.job');
 	
+	Clockwork::every('1 hour', 'midhour.job', array('at' => '**:30'));
 	Clockwork::every('1 day', 'midnight.job', array('at' => '00:00'));
 	
 	?>
